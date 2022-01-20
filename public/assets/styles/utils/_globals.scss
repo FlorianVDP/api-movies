@@ -1,0 +1,57 @@
+html{
+  body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2em 0;
+    font-family: $main-font;
+    font-size: 20px;
+    color: $noir;
+    main{
+      display: flex;
+      flex-direction: column;
+      gap: 4em;
+      section, header{
+        padding: 0 1em;
+        div.wrapper-section, div.wrapper-header{
+          max-width: $max-width;
+          width: 100%;
+          margin: 0 auto;
+          h1, h2{
+            font-family: $display-font;
+          }
+          h1{
+            font-size: 3em;
+          }
+          h2{
+            font-size: 2em;
+          }
+        }
+        &.heading{
+          div.wrapper-section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1em;
+            h1{
+              text-align: center;
+            }
+            a.back{
+              align-items: center;
+              gap: .5em;
+              text-decoration: none;
+              color: $noir;
+              font-weight: bold;
+              transition: all ease-in 150ms;
+              display: inline-flex;
+              align-self: flex-start;
+              &:hover, &:focus{
+                color: $second-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

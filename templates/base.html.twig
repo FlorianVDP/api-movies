@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="stylesheet" href="./assets/styles/styles.css">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -13,7 +15,22 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body class="{% block classBody %}{% endblock %}">
+    <header>
+        <div class="wrapper-header">
+            <a href="/" class="logo" title="">
+                <span><span class="material-icons">label_important</span>API Movies</span>
+            </a>
+            <nav class="menu">
+                <ul>
+                    <li class="menu-item"><a href="/movies" title="">Movies</a></li>
+                    <li class="menu-item"><a href="/peoples" title="">Peoples</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
         {% block body %}{% endblock %}
+    </main>
     </body>
 </html>

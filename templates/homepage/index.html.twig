@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Api{% endblock %}
+{% block classBody %}homepage{% endblock %}
+
+{% block body %}
+<section class="search">
+    <div class="wrapper-section">
+        <form action="/results" method="get">
+            <p class="wrapper search">
+                <span class="material-icons">search</span>
+                <label for="search">Search…</label>
+                <input type="text" id="search" name="search" placeholder="Search…">
+            </p>
+            <p class="wrapper">
+                <select name="type" id="type">
+                    <option value="movie">Movie</option>
+                    <option value="tv" disabled>TV Show</option>
+                    <option value="person" disabled>Person</option>
+                </select>
+            </p>
+            <p class="wrapper">
+                <input type="submit">
+            </p>
+        </form>
+    </div>
+</section>
+{% endblock %}

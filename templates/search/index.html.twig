@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block classBody %}results{% endblock %}
+
+{% block body %}
+    {% if total_results > 0 %}
+        <section class="heading">
+            <div class="wrapper-section">
+                <h1>Result search for : {{ search }}</h1>
+                <a href="/" class="back"><span class="material-icons">arrow_back</span>Back</a>
+            </div>
+        </section>
+        <section class="results">
+            <div class="wrapper-section">
+                <ul class="listing-results">
+                    {% for element in  results %}
+                        {% if element["poster_path"] %}
+                            {% set poster_path = "https://image.tmdb.org/t/p/original/" ~ element["poster_path"] %}
+                        {% else %}
+                            {% set poster_path = "./assets/images/default.JPG" %}
+                        {% endif %}
+                        <li class="result" id="{{ element["id"] }}">
+                            <a href="/movies/{{ element["id"] }}" title="Go on {{ element["title"] }}'s page">
+                                <img src="{{ poster_path }}" alt="{{ element["title"] }}'s poster">
+                                <div class="text-wrapper">
+                                    <span class="title">{{ element["title"] }}</span>
+                                    {% if element["overview"] %}
+                                        <p class="overview">{{ element["overview"] | slice(0,100) ~ "…" }}</p>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

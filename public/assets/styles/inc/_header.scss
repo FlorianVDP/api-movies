@@ -1,0 +1,40 @@
+header{
+  background-color: $main-color;
+  padding: 1em;
+  div.wrapper-header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em 4em;
+    a{
+      text-decoration: none;
+      span{
+        font-size: 50px;
+        color: $blanc;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+      }
+    }
+    nav{
+      display: none;
+      ul{
+        display: flex;
+        align-items: center;
+        gap: 1em 2em;
+        li.menu-item{
+          a{
+            text-decoration: none;
+            color: $blanc;
+            font-family: $display-font;
+            transition: all ease-in 150ms;
+            &:hover, &:focus{
+              color: $second-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
