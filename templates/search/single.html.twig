@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Movies | {{ results["original_title"] }}{% endblock %}
+
+{% block classBody %}single{% endblock %}
+
+{% block body %}
+    {% if results["backdrop_path"] %}
+        {% set backdrop_path = "https://image.tmdb.org/t/p/original/" ~ results["backdrop_path"] %}
+    {% else %}
+        {% set backdrop_path = "./assets/images/default.JPG" %}
+    {% endif %}
+    <section class="heading" style="background-image: url({{ backdrop_path }});">
+        <div class="wrapper-section">
+            <h1>{{ results["original_title"] }}</h1>
+            <a href="/" class="back"><span class="material-icons">arrow_back</span>Back</a>
+        </div>
+    </section>
+    <section class="content">
+        <div class="wrapper-section">
+            <p class="overview">{{ results["overview"] }}</p>
+            <p class="budget">{{ results["budget"] }}</p>
+        </div>
+    </section>
+{% endblock %}

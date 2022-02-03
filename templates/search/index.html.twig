@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SearchController!{% endblock %}
+{% block title %}Search | {{ search }}{% endblock %}
 
 {% block classBody %}results{% endblock %}
 
@@ -16,13 +16,15 @@
             <div class="wrapper-section">
                 <ul class="listing-results">
                     {% for element in  results %}
-                        {% if element["poster_path"] %}
-                            {% set poster_path = "https://image.tmdb.org/t/p/original/" ~ element["poster_path"] %}
-                        {% else %}
-                            {% set poster_path = "./assets/images/default.JPG" %}
-                        {% endif %}
+                        {% if type != "person" %}
                         <li class="result" id="{{ element["id"] }}">
                             <a href="/movies/{{ element["id"] }}" title="Go on {{ element["title"] }}'s page">
+
+                                    {% if element["poster_path"] %}
+                                        {% set poster_path = "https://image.tmdb.org/t/p/original/" ~ element["poster_path"] %}
+                                    {% else %}
+                                        {% set poster_path = "./assets/images/default.JPG" %}
+                                    {% endif %}
                                 <img src="{{ poster_path }}" alt="{{ element["title"] }}'s poster">
                                 <div class="text-wrapper">
                                     <span class="title">{{ element["title"] }}</span>
@@ -32,6 +34,25 @@
                                 </div>
                             </a>
                         </li>
+                            {% else %}
+                                <li class="result" id="{{ element["id"] }}">
+                                    <a href="/persons/{{ element["id"] }}" title="Go on {{ element["name"] }}'s page">
+
+                                        {% if element["profile_path"] %}
+                                            {% set profile_path = "https://image.tmdb.org/t/p/original/" ~ element["profile_path"] %}
+                                        {% else %}
+                                            {% set profile_path = "./assets/images/default.JPG" %}
+                                        {% endif %}
+                                        <img src="{{ profile_path }}" alt="{{ element["name"] }}'s poster">
+                                        <div class="text-wrapper">
+                                            <span class="title">{{ element["name"] }}</span>
+                                            {% if element["known_for_department"] %}
+                                                <p class="known_for_department">{{ element["known_for_department"] }}</p>
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                </li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
             </div>
