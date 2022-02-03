@@ -1,103 +1,57 @@
 body.single{
+  gap: 0;
   main{
     section{
       div.wrapper-section{
 
       }
-      &.results{
+      &.heading{
+        padding: 10em 1em;
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+        z-index: 1;
+        &::before{
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          //background: rgb(255,255,255);
+          background: linear-gradient(180deg, rgba($noir-noir,.25) 0%, rgba($noir-noir,1) 100%);
+          z-index: -1;
+        }
         div.wrapper-section{
-          display: flex;
-          flex-direction: column;
-          gap: 2em;
-          h2{
-            text-align: center;
+          z-index: 2;
+          h1{
+            color: $blanc;
           }
-          ul.listing-results{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2em;
-            li.result{
-              flex-basis: calc((#{$max-width} / 4) - ((2em * 3)) / 4);
-              flex-grow: 1;
-              width: 100%;
-              a{
-                box-sizing: border-box;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                border-radius: $border-radius;
-                overflow: hidden;
-                border: none;
-                position: relative;
-                height: 400px;
-                //cursor: pointer;
-                transition: all ease-in 150ms;
-                text-decoration: none;
-                &::before{
-                  content: "";
-                  display: block;
-                  position: absolute;
-                  top: 0;
-                  right: 0;
-                  bottom: 0;
-                  left: 0;
-                  //background: rgb(255,255,255);
-                  background: linear-gradient(180deg, rgba($noir-noir,.25) 0%, rgba($noir-noir,1) 100%);
-                  z-index: 1;
-                }
-                img{
-                  position: absolute;
-                  top: 0;
-                  right: 0;
-                  bottom: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  z-index: -1;
-                  transition: all ease-in 200ms;
-                }
-                div.text-wrapper{
-                  box-sizing: border-box;
-                  padding: 1em 2em;
-                  display: flex;
-                  flex-direction: column;
-                  gap: 1em;
-                  z-index: 2;
-                  span.title{
-                    font-weight: 400;
-                    font-family: $display-font;
-                    color: $blanc;
-                  }
-                  p.known_for_department{
-                    font-weight: 400;
-                    color: $blanc;
-                  }
-                  p.overview{
-                    overflow: hidden;
-                    transition: all ease-in 150ms;
-                    color: $blanc;
-                    font-size: .8em;
-                    opacity: 0;
-                    height: 0px;
-                    text-overflow: ellipsis;
-                  }
-                }
-                &:hover, &:focus{
-                  img{
-                    transform: scale(1.1);
-                  }
-                  div.text-wrapper{
-                    p.overview{
-                      opacity: 1;
-                      height: 50px;
-                    }
-                  }
-                }
+          a{
+            &.addToFavorite{
+              position: absolute;
+              bottom: 1em;
+              right: 1em;
+              z-index: 99;
+              text-decoration: none;
+              color: $blanc;
+              transition: all ease-in 150ms;
+              &:hover, &:focus{
+                transform: scale(1.1);
+              }
+            }
+            &.back{
+              position: absolute;
+              bottom: 1em;
+              left: 1em;
+              color: $blanc;
+              &:hover, &:focus{
+                color: $second-color;
               }
             }
           }
+
         }
       }
     }

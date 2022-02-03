@@ -165,9 +165,6 @@ header div.wrapper-header a span {
   gap: 10px;
   font-weight: bold;
 }
-header div.wrapper-header nav {
-  display: none;
-}
 header div.wrapper-header nav ul {
   display: flex;
   align-items: center;
@@ -201,8 +198,21 @@ body.results main section.results div.wrapper-section ul.listing-results li.resu
   flex-basis: calc((1500px / 4) - ((2em * 3)) / 4);
   flex-grow: 1;
   width: 100%;
+  position: relative;
 }
-body.results main section.results div.wrapper-section ul.listing-results li.result a {
+body.results main section.results div.wrapper-section ul.listing-results li.result a.addToFavorite {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 99;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all ease-in 150ms;
+}
+body.results main section.results div.wrapper-section ul.listing-results li.result a.addToFavorite:hover, body.results main section.results div.wrapper-section ul.listing-results li.result a.addToFavorite:focus {
+  transform: scale(1.1);
+}
+body.results main section.results div.wrapper-section ul.listing-results li.result a.link {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -215,7 +225,7 @@ body.results main section.results div.wrapper-section ul.listing-results li.resu
   transition: all ease-in 150ms;
   text-decoration: none;
 }
-body.results main section.results div.wrapper-section ul.listing-results li.result a::before {
+body.results main section.results div.wrapper-section ul.listing-results li.result a.link::before {
   content: "";
   display: block;
   position: absolute;
@@ -272,39 +282,17 @@ body.results main section.results div.wrapper-section ul.listing-results li.resu
   height: 50px;
 }
 
-body.single main section.results div.wrapper-section {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
+body.single {
+  gap: 0;
 }
-body.single main section.results div.wrapper-section h2 {
-  text-align: center;
-}
-body.single main section.results div.wrapper-section ul.listing-results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2em;
-}
-body.single main section.results div.wrapper-section ul.listing-results li.result {
-  flex-basis: calc((1500px / 4) - ((2em * 3)) / 4);
-  flex-grow: 1;
-  width: 100%;
-}
-body.single main section.results div.wrapper-section ul.listing-results li.result a {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  border-radius: 4px;
-  overflow: hidden;
-  border: none;
+body.single main section.heading {
+  padding: 10em 1em;
+  background-size: cover;
+  background-position: center center;
   position: relative;
-  height: 400px;
-  transition: all ease-in 150ms;
-  text-decoration: none;
+  z-index: 1;
 }
-body.single main section.results div.wrapper-section ul.listing-results li.result a::before {
+body.single main section.heading::before {
   content: "";
   display: block;
   position: absolute;
@@ -313,52 +301,34 @@ body.single main section.results div.wrapper-section ul.listing-results li.resul
   bottom: 0;
   left: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, black 100%);
-  z-index: 1;
-}
-body.single main section.results div.wrapper-section ul.listing-results li.result a img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   z-index: -1;
-  transition: all ease-in 200ms;
 }
-body.single main section.results div.wrapper-section ul.listing-results li.result a div.text-wrapper {
-  box-sizing: border-box;
-  padding: 1em 2em;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
+body.single main section.heading div.wrapper-section {
   z-index: 2;
 }
-body.single main section.results div.wrapper-section ul.listing-results li.result a div.text-wrapper span.title {
-  font-weight: 400;
-  font-family: "Abril Fatface", cursive;
+body.single main section.heading div.wrapper-section h1 {
   color: #ffffff;
 }
-body.single main section.results div.wrapper-section ul.listing-results li.result a div.text-wrapper p.known_for_department {
-  font-weight: 400;
+body.single main section.heading div.wrapper-section a.addToFavorite {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  z-index: 99;
+  text-decoration: none;
   color: #ffffff;
-}
-body.single main section.results div.wrapper-section ul.listing-results li.result a div.text-wrapper p.overview {
-  overflow: hidden;
   transition: all ease-in 150ms;
-  color: #ffffff;
-  font-size: 0.8em;
-  opacity: 0;
-  height: 0px;
-  text-overflow: ellipsis;
 }
-body.single main section.results div.wrapper-section ul.listing-results li.result a:hover img, body.single main section.results div.wrapper-section ul.listing-results li.result a:focus img {
+body.single main section.heading div.wrapper-section a.addToFavorite:hover, body.single main section.heading div.wrapper-section a.addToFavorite:focus {
   transform: scale(1.1);
 }
-body.single main section.results div.wrapper-section ul.listing-results li.result a:hover div.text-wrapper p.overview, body.single main section.results div.wrapper-section ul.listing-results li.result a:focus div.text-wrapper p.overview {
-  opacity: 1;
-  height: 50px;
+body.single main section.heading div.wrapper-section a.back {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  color: #ffffff;
+}
+body.single main section.heading div.wrapper-section a.back:hover, body.single main section.heading div.wrapper-section a.back:focus {
+  color: #fbc531;
 }
 
 /*# sourceMappingURL=styles.css.map */

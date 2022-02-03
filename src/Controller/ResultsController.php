@@ -30,8 +30,8 @@ class ResultsController extends AbstractController
         $results = $response["results"];
         $total_pages = $response["total_pages"];
         $total_results = $response["total_results"];
-        dump($results);
-        //die();
+
+
         return $this->render('search/index.html.twig', [
             "type" => $type,
             "search" => $search,
@@ -55,7 +55,7 @@ class ResultsController extends AbstractController
             $url
         );
         $response = json_decode($response->getContent(), true);
-        dump($response);
+        //dump($response);die();
         return $this->render('search/single.html.twig', [
             "results" => $response
         ]);

@@ -9,7 +9,7 @@
         <section class="heading">
             <div class="wrapper-section">
                 <h1>Result search for : {{ search }}</h1>
-                <a href="/" class="back"><span class="material-icons">arrow_back</span>Back</a>
+                <a href="{{ app.request.headers.get('referer') }}" class="back"><span class="material-icons">arrow_back</span>Back</a>
             </div>
         </section>
         <section class="results">
@@ -18,8 +18,8 @@
                     {% for element in  results %}
                         {% if type != "person" %}
                         <li class="result" id="{{ element["id"] }}">
-                            <a href="/movies/{{ element["id"] }}" title="Go on {{ element["title"] }}'s page">
-
+                            <a href="/favorites/add/{{ element["id"] }}?title={{ element["title"] }}" class="addToFavorite material-icons">favorite_border</a>
+                            <a href="/movies/{{ element["id"] }}" class="link" title="Go on {{ element["title"] }}'s page">
                                     {% if element["poster_path"] %}
                                         {% set poster_path = "https://image.tmdb.org/t/p/original/" ~ element["poster_path"] %}
                                     {% else %}
