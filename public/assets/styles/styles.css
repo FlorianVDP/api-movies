@@ -331,4 +331,14 @@ body.single main section.heading div.wrapper-section a.back:hover, body.single m
   color: #fbc531;
 }
 
+body.favorites main section.favoris div.wrapper-section ul.listing li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+body.favorites main section.favoris div.wrapper-section ul.listing li a.removeToFavorite {
+  color: #ff4757;
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,27 @@
+body.favorites{
+  main{
+    section{
+      div.wrapper-section{
+
+      }
+      &.favoris{
+        div.wrapper-section{
+          ul.listing{
+            li{
+              display: flex;
+              align-items: center;
+              gap: .5em;
+              a.removeToFavorite{
+                color: $rouge;
+                text-decoration: none;
+              }
+              span{
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
