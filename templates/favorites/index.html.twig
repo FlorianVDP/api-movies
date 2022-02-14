@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Your favorites{% endblock %}
+{% block classBody %}favorites{% endblock %}
+{% block body %}
+
+<section class="heading">
+    <div class="wrapper-section">
+        <h1>Vos favoris</h1>
+    </div>
+</section>
+    <section class="favoris">
+        <div class="wrapper-section">
+            <ul class="listing">
+                {% for element in favoriteList %}
+                <li class="favoris">
+                    <a href="/favorites/delete/{{ element.id }}" class="removeToFavorite material-icons">delete_outline</a><span class="nom">{{ element.movieTitle }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endblock %}
