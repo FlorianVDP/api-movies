@@ -23,11 +23,14 @@
             </a>
             <nav class="menu">
                 <ul>
-                    <li class="menu-item"><a href="/favorites" title="Aller aux favoris">Favoris</a></li>
-                    <li class="menu-item"><a href="/login" class="log" title="Login"><span><span class="material-icons">login</span>Login</span></a></li>
+                    {% if app.user %}
+                        <li class="menu-item"><a href="/favorites" title="Aller aux favoris">Favoris</a></li>
+                        <li class="menu-item"><a href="/logout" class="log" title="Logout"><span><span class="material-icons">logout</span>Logout</span></a></li>
+                    {% else %}
+                        <li class="menu-item"><a href="/login" class="log" title="Login"><span><span class="material-icons">login</span>Login</span></a></li>
+                    {% endif %}
                 </ul>
             </nav>
-
         </div>
     </header>
     <main>

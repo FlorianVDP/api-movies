@@ -1,8 +1,8 @@
 {# templates/login/index.html.twig #}
 {% extends 'base.html.twig' %}
 
-{# ... #}
-
+{% block title %}Login{% endblock %}
+{% block classBody %}favorites{% endblock %}
 {% block body %}
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -20,4 +20,5 @@
 
         <button type="submit">login</button>
     </form>
+    <p>If not register go to <a href="/register">registration page</a></p>
 {% endblock %}
