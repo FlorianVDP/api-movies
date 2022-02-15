@@ -3,10 +3,10 @@ header{
   padding: 1em;
   div.wrapper-header{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     gap: 1em 4em;
-    a{
+    a.logo{
       text-decoration: none;
       span{
         font-size: 50px;
@@ -29,6 +29,11 @@ header{
             color: $blanc;
             font-family: $display-font;
             transition: all ease-in 150ms;
+            span{
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
             &:hover, &:focus{
               color: $second-color;
             }

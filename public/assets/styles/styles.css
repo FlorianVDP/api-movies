@@ -150,14 +150,14 @@ header {
 }
 header div.wrapper-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   gap: 1em 4em;
 }
-header div.wrapper-header a {
+header div.wrapper-header a.logo {
   text-decoration: none;
 }
-header div.wrapper-header a span {
+header div.wrapper-header a.logo span {
   font-size: 50px;
   color: #ffffff;
   display: flex;
@@ -175,6 +175,11 @@ header div.wrapper-header nav ul li.menu-item a {
   color: #ffffff;
   font-family: "Abril Fatface", cursive;
   transition: all ease-in 150ms;
+}
+header div.wrapper-header nav ul li.menu-item a span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 header div.wrapper-header nav ul li.menu-item a:hover, header div.wrapper-header nav ul li.menu-item a:focus {
   color: #fbc531;
